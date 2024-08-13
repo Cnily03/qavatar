@@ -1,0 +1,11 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "qavatar"
+main = "src/index.ts"
+compatibility_date = "2024-08-06"
+compatibility_flags = ["nodejs_compat"]
+
+# For local development, use `wrangler dev` to start a local server
+[dev]
+ip             = "0.0.0.0"
+port           = 8787
+local_protocol = "http"
