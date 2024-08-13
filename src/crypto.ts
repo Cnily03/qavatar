@@ -2,8 +2,9 @@ import { Buffer } from 'node:buffer';
 import crypto from 'node:crypto';
 import config from '@config';
 
-function padPKCS7(data: Buffer, blockSize: number) {
-    let pad = Buffer.alloc(blockSize - data.length % blockSize, blockSize - data.length % blockSize);
+function padPKCS7(data: Buffer, block_size: number) {
+    if(data.length >= block_size) return data.subarray(0, block_size);
+    let pad = Buffer.alloc(block_size - data.length % block_size, block_size - data.length % block_size);
     return Buffer.concat([data, pad]);
 }
 
