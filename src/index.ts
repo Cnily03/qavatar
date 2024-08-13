@@ -159,8 +159,7 @@ app.post("/avatar/url",
 
 		const prefix = c.req.query("prefix") || "";
 		let url_param = new URLSearchParams(Object.assign(
-			data.search.ignored,
-			data.search.mixin, {
+			extra_params || {}, {
 			[config.site.cipher_param!]: data.cipher,
 			[config.site.sign_param!]: data.sign,
 			license: license.id
