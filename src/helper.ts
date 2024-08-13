@@ -165,7 +165,7 @@ export function collect_all(
     return {
         license_id: license.id,
         search: {
-            materials: materials,
+            material: materials,
             extra: extra || {},
             ignored: ignored,
             mixin: mixins,

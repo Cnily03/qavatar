@@ -154,12 +154,13 @@ app.post("/avatar/url",
 	async (c) => {
 		const { license, materials, extra_params } = await prepare(c);
 
-		const mixins = mixin_extra_params(materials, extra_params, license.extra_param_policy);
-		const data = collect_sign(license, materials, mixins)
+		// const mixins = mixin_extra_params(materials, extra_params, license.extra_param_policy);
+		const data = collect_all(license, materials, extra_params)
 
 		const prefix = c.req.query("prefix") || "";
 		let url_param = new URLSearchParams(Object.assign(
-			mixins, {
+			data.search.ignored,
+			data.search.mixin, {
 			[config.site.cipher_param!]: data.cipher,
 			[config.site.sign_param!]: data.sign,
 			license: license.id

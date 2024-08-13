@@ -15,7 +15,7 @@ export interface SiteConfig<T extends string = string> {
      */
     uin_param?: T;
     /**
-     * The extra query parameters to ignore when mixing the request parameters (value of `uin_param` will always be ignored).
+     * The extra query parameter names won't be included to the final query parameters (value of `uin_param` will always be ignored).
      * @default ['t', '_']
      */
     ignore_params?: string[];
